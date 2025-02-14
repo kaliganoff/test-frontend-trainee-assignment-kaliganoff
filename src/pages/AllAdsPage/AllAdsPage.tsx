@@ -24,7 +24,7 @@ import createAd from "../../services/createAd";
 export default function AllAdsPage() {
   const [ads, setAds] = useState<Advertisement[]>([]);
   const [adsOnPage, setAdsOnPage] = useState<Advertisement[]>([]);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [pictureModal, setPictureModal] = useState("");
@@ -113,12 +113,11 @@ export default function AllAdsPage() {
         placeholder="Количество объявлений на странице"
         onChange={(e) => setItemsPerPage(+e.target.value)}
       >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
         <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
       </Select>
       <Button
         onClick={() => {
