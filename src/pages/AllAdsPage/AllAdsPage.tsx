@@ -48,8 +48,8 @@ export default function AllAdsPage() {
       setAdsOnPage(
         searchValue
           ? adsPaginated.filter((item: Advertisement) =>
-            item.name.includes(searchValue),
-          )
+              item.name.includes(searchValue),
+            )
           : adsPaginated,
       );
     }
@@ -120,8 +120,21 @@ export default function AllAdsPage() {
         <option value="9">9</option>
         <option value="10">10</option>
       </Select>
-      <Button onClick={onOpen}>Создать новое объявление</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Button
+        onClick={() => {
+          window.history.replaceState(null, "New Page Title", "/form");
+          onOpen();
+        }}
+      >
+        Создать новое объявление
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          window.history.replaceState(null, "New Page Title", "/list");
+          onClose();
+        }}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Создать новое объявление</ModalHeader>
@@ -150,7 +163,14 @@ export default function AllAdsPage() {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={() => {
+                window.history.replaceState(null, "New Page Title", "/list");
+                onClose();
+              }}
+            >
               Закрыть
             </Button>
             <Button onClick={() => HandleCreateAd()} variant="ghost">

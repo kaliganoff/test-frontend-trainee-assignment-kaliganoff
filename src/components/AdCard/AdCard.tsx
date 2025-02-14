@@ -6,7 +6,7 @@ export default function AdCard({ ad }: { ad: Advertisement }) {
   const { id, name, price, views, likes, imageUrl } = ad;
 
   return (
-    <Link to={`${id}`}>
+    <Link to={`/item/${id}`}>
       <Box
         bg={"blanchedalmond"}
         border={"1px solid white"}
