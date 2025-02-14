@@ -48,8 +48,8 @@ export default function AllAdsPage() {
       setAdsOnPage(
         searchValue
           ? adsPaginated.filter((item: Advertisement) =>
-              item.name.includes(searchValue),
-            )
+            item.name.includes(searchValue),
+          )
           : adsPaginated,
       );
     }
@@ -122,7 +122,7 @@ export default function AllAdsPage() {
       </Select>
       <Button
         onClick={() => {
-          window.history.replaceState(null, "New Page Title", "/form");
+          window.history.replaceState(null, "", "/form");
           onOpen();
         }}
       >
@@ -131,7 +131,7 @@ export default function AllAdsPage() {
       <Modal
         isOpen={isOpen}
         onClose={() => {
-          window.history.replaceState(null, "New Page Title", "/list");
+          window.history.replaceState(null, "", "/list");
           onClose();
         }}
       >
@@ -167,7 +167,7 @@ export default function AllAdsPage() {
               colorScheme="blue"
               mr={3}
               onClick={() => {
-                window.history.replaceState(null, "New Page Title", "/list");
+                window.history.replaceState(null, "", "/list");
                 onClose();
               }}
             >
