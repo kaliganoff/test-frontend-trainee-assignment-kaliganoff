@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getSingleAd from "../../services/getSingleAd";
-import { Advertisment } from "../../types/types";
+import { Advertisement } from "../../types/types";
 import { Box, Button, Flex, Image, Input, Text } from "@chakra-ui/react";
 import editAd from "../../services/editAd";
 
 export default function AdPage() {
   const { id } = useParams<{ id: string | undefined }>();
-  const [ad, setAd] = useState<Advertisment>();
+  const [ad, setAd] = useState<Advertisement>();
   const [editorMode, setEditorMode] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>("");
   const [name, setName] = useState("");
@@ -16,7 +16,7 @@ export default function AdPage() {
 
   useEffect(() => {
     async function setSingleAd() {
-      const ad: Advertisment = await getSingleAd(id);
+      const ad: Advertisement = await getSingleAd(id);
       setAd(ad);
       setImageUrl(ad?.imageUrl);
       setName(ad?.name);

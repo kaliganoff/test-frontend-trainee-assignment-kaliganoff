@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getAllAds from "../../services/getAllAds";
-import { Advertisment } from "../../types/types";
+import { Advertisement } from "../../types/types";
 import AdCard from "../../components/AdCard/AdCard";
 import {
   Box,
@@ -22,8 +22,8 @@ import getAdsPaginated from "../../services/getAdsPaginated";
 import createAd from "../../services/createAd";
 
 export default function AllAdsPage() {
-  const [ads, setAds] = useState<Advertisment[]>([]);
-  const [adsOnPage, setAdsOnPage] = useState<Advertisment[]>([]);
+  const [ads, setAds] = useState<Advertisement[]>([]);
+  const [adsOnPage, setAdsOnPage] = useState<Advertisement[]>([]);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -47,9 +47,9 @@ export default function AllAdsPage() {
       const adsPaginated = await getAdsPaginated(currentPage, itemsPerPage);
       setAdsOnPage(
         searchValue
-          ? adsPaginated.filter((item: Advertisment) =>
-              item.name.includes(searchValue),
-            )
+          ? adsPaginated.filter((item: Advertisement) =>
+            item.name.includes(searchValue),
+          )
           : adsPaginated,
       );
     }

@@ -1,8 +1,8 @@
 import { Box, Image } from "@chakra-ui/react";
-import { Advertisment } from "../../types/types";
+import { Advertisement } from "../../types/types";
 import { Link } from "react-router-dom";
 
-export default function AdCard({ ad }: { ad: Advertisment }) {
+export default function AdCard({ ad }: { ad: Advertisement }) {
   const { id, name, price, views, likes, imageUrl } = ad;
 
   return (
